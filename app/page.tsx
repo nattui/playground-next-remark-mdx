@@ -2,9 +2,20 @@ import { mdxToComponents } from "@/app/mdx-to-components"
 
 export default async function Home() {
   const mdx = `
-  # Hello
+export const year = 2023
 
-  my name is Natt
+# Welcome to MDX
+
+This is a paragraph with a {year} word.
+
+## Some code
+
+\`\`\`javascript
+const greeting = "Hello, MDX!";
+console.log(greeting);
+\`\`\`
+
+You can use React components directly in your MDX!
   `
 
   const components = mdxToComponents(mdx)

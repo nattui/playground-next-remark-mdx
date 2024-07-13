@@ -1,6 +1,7 @@
 import { ReactNode } from "react"
 import { Fragment, jsx, jsxs } from "react/jsx-runtime"
 import rehypeReact from "rehype-react"
+import remarkMdx from "remark-mdx"
 import remarkParse from "remark-parse"
 import remarkRehype from "remark-rehype"
 import { unified } from "unified"
@@ -18,6 +19,7 @@ export async function mdxToComponents(mdx: string) {
   // Order of plugins matters
   const { result } = await unified()
     .use(remarkParse)
+    .use(remarkMdx)
     .use(remarkRehype)
     // @ts-expect-error: suggested in documentation due to missing types
     .use(rehypeReact, {
